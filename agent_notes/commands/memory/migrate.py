@@ -126,7 +126,7 @@ def do_migrate() -> None:
         cat_dir = vault / cat
         if not cat_dir.exists():
             continue
-        for note in list(cat_dir.glob("*.md")):
+        for note in sorted(cat_dir.glob("*.md")):
             new_stem = _new_stem(note.stem, cat_dir, note)
             if new_stem is None:
                 skipped += 1
